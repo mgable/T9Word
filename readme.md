@@ -17,5 +17,10 @@ Once I have a working prototype I write the Jasmine javascript tests. In the fut
 
 To finish the prototype, I place it on my favorite JS online community, which is [Plunkr](http://plnkr.co/edit/xF22yq?p=info "My Prototype") and test on all available browsers and platforms.
 
+The prototype code can be found on [Github](https://github.com/mgable/T9Word "Prototype").
+
 ##### The Production Build
 Once the prototype is approved, I would then refractor to make it a production quality app. First, this involves seeding the project using Yeoman. I like Yeoman because it enforces standards and insures a certain level of quality. The javascript is improved because jshint is executing and all files are automatically concatenated and minified including all css. The html template is improved as it uses the HTML5 boilerplate. And it all happens automatically.
+
+The production code can be found of [Github](https://github.com/mgable/T9Word_production "T9word production").
+
