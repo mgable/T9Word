@@ -16,3 +16,6 @@ If there are ever any questions of performance, and there always are with recurs
 Once I have a working prototype I write the Jasmine javascript tests. In the future I will use these for the production build of the app and as a guide when doing any refractoring. 
 
 To finish the prototype, I place it on my favorite JS online community, which is [Plunkr](http://plnkr.co/edit/xF22yq?p=info "My Prototype") and test on all available browsers and platforms.
+
+##### The Production Build
+Once the prototype is approved, I would then refractor to make it a production quality app. First, this involves seeding the project using Yeoman. I like Yeoman because it inforces standards and insures a certain level of quality. The javascript is improved because jshint is executing and all files are automatically concatenated and minified including all css. And it all happens automatically.

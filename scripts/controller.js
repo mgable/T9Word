@@ -25,6 +25,7 @@ T9WORD.controller = (function(){
 	*/
 	function getWords(numberArray){
 		var digit = numberArray[0];
+		// TESTED - http://jsperf.com/t9wordloop
 		for (var x = 0, l = data[digit].length; x < l; x = x + 1) {
 			word = data[digit][x];
 			if (numberArray[1]){
