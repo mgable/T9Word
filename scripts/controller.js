@@ -6,7 +6,7 @@ T9WORD.controller = (function(){
 	word = '', // variable to build individual words from characters
 	words = [], // array to hold all possible character combinations
 	root = '',  // variable to keep track of stating word characters during recursion
-	errorMsg = ''; // error message
+	cache = {}; // cache object
 
 	// private functions, protected by closure
 	/*
@@ -56,38 +56,20 @@ T9WORD.controller = (function(){
 	*/
 	function santize(entry) {
 		if (entry === ''){
-			error (1);
+			T9WORD.error.display(2);
 			return false;
 		} else if (/^\d*$/.test(entry)){
 			entry = entry.replace(/[01]/g,"");
 			if (entry.length === 0){
-				error(2);
+				T9WORD.error.display(3);
 				return false;
 			}
+			T9WORD.error.display(0);
 			return typeof entry === "number" ? entry.toString().split(/\B/) : entry.split(/\B/);
 		} else {
-			error (0);
+			T9WORD.error.display(1);
 			return false;
 		}
-	}
-
-	/*
-	   Function: error
-
-	   sets error message
-
-	   Parameters:
-
-	      code - number 
-
-	   Returns:
-
-	      nothing
-
-	*/
-	function error(code){
-		var errorCodes = ["Entry can only contain numbers", "Please enter some numbers", "A combination of only zeros and ones produces no results"]
-		errorMsg = (errorCodes[code]);
 	}
 
 	// public API
@@ -106,13 +88,20 @@ T9WORD.controller = (function(){
 
 	*/
 	return function getPossibleWords(numberSequence){
-	    var numArray = santize(numberSequence);
+	    var numArray;
+	    console.info (cache);
+	    if (cache[numberSequence]){
+	    	T9WORD.error.display(0);
+	    	return cache[numberSequence];
+	    }
+	    numArray = santize(numberSequence);
 	    if (numArray){
 	    	words = [];
 	    	words = getWords(numArray);
+	    	cache[numberSequence] = words;
 	    	return words;
 	    } else {
-	    	return errorMsg;
+	    	return "";
 	    }
 	}
 })();

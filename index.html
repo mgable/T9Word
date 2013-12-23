@@ -10,15 +10,40 @@
 
 	<div class="hero-unit">
 	  <h2>T9Word</h2>
-	  	<label for="numbers">Please enters your numbers</label>
+	  	<label for="numbers">Please enter your numbers</label>
+	  	 <div id="errorField" class="text-error"></div>
  		<input type="text" id="numbers" name="numbers"/>
  		<button class="btn btn-primary">Submit</button>
  		<label for="output">Possible letter combinations</label>
- 		<textarea id="output" rows="6" name="output"></textarea>
+ 		<div class="textHolder">
+ 			<textarea id="output" rows="6" name="output"></textarea>
+ 			<div id="floatingBarsG">
+				<div class="blockG" id="rotateG_01"></div>
+				<div class="blockG" id="rotateG_02"></div>
+				<div class="blockG" id="rotateG_03"></div>
+				<div class="blockG" id="rotateG_04"></div>
+				<div class="blockG" id="rotateG_05"></div>
+				<div class="blockG" id="rotateG_06"></div>
+				<div class="blockG" id="rotateG_07"></div>
+				<div class="blockG" id="rotateG_08"></div>
+			</div>
+ 		</div>
+ 		<div>
+ 			<label class="radio">
+			<input type="radio" name="filter" id="showAll" value="all" checked>
+				Show all character combinations
+			</label>
+			<label class="radio">
+			<input type="radio" name="filter" id="realWords" value="words">
+				show real words only
+			</label>
+		</div>
 	</div>
 
-
+	<script src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="scripts/error.js"></script>
 	<script src="scripts/controller.js"></script>
 	<script src="scripts/view.js"></script>
+	<script src="scripts/lookupService.js"></script>
  </body>
 </html>
