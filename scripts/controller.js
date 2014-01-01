@@ -6,6 +6,7 @@ T9WORD.controller = (function(){
 	word = '', // variable to build individual words from characters
 	words = [], // array to hold all possible character combinations
 	root = '',  // variable to keep track of stating word characters during recursion
+	cache = {}, // cache object
 	errorMsg = ''; // error message
 
 	// private functions, protected by closure
@@ -106,10 +107,17 @@ T9WORD.controller = (function(){
 
 	*/
 	return function getPossibleWords(numberSequence){
-	    var numArray = santize(numberSequence);
+	    var numArray;
+	    if (cache[numberSequence]){
+	    	return cache[numberSequence];
+	    }
+	    numArray = santize(numberSequence);
 	    if (numArray){
 	    	words = [];
 	    	words = getWords(numArray);
+	    	if (!cache[numberSequence]){
+	    		cache[numberSequence] = words;
+	    	}
 	    	return words;
 	    } else {
 	    	return errorMsg;
